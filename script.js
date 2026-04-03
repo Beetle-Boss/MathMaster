@@ -37,6 +37,165 @@ function checkPracticeAnswer(correct, explanation) {
 
 // PROBLEM GENERATORS
 function generateProblem(topic) {
+  // Linear Equations
+  function ts_linearSolve() {
+  const a = Math.floor(Math.random()*8)+2;
+  const b = Math.floor(Math.random()*10)+1;
+  const c = Math.floor(Math.random()*20)+5;
+
+  const answer = (c - b) / a;
+
+  return {
+    question: `Solve: ${a}x + ${b} = ${c}`,
+    answer,
+    explanation: `Subtract ${b}, then divide by ${a}.`
+  };
+}
+
+  // Fraction Simplification 
+  function ts_fractionSimplify() {
+  const a = (Math.floor(Math.random()*8)+2);
+  const b = (Math.floor(Math.random()*8)+2);
+  const num = a*b;
+  const den = a*(Math.floor(Math.random()*5)+2);
+
+  const answer = num/den;
+
+  return {
+    question: `Simplify: ${num}/${den}`,
+    answer,
+    explanation: `Divide numerator and denominator by ${a}.`
+  };
+}
+
+  // Sequences
+  function ts_sequence() {
+  const a = Math.floor(Math.random()*10)+2;
+  const d = Math.floor(Math.random()*8)+1;
+  const n = Math.floor(Math.random()*10)+5;
+
+  const answer = a + (n-1)*d;
+
+  return {
+    question: `Find term ${n} of the sequence: a₁=${a}, d=${d}`,
+    answer,
+    explanation: `Use aₙ = a₁ + (n−1)d.`
+  };
+}
+
+  // Exponents 
+  function ts_exponent() {
+  const a = Math.floor(Math.random()*5)+2;
+  const b = Math.floor(Math.random()*5)+2;
+
+  return {
+    question: `Compute: ${a}^${b}`,
+    answer: a**b,
+    explanation: `Multiply ${a} by itself ${b} times.`
+  };
+}
+
+  // Logs
+  function ts_logarithm() {
+  const base = 2;
+  const exp = Math.floor(Math.random()*6)+2;
+
+  return {
+    question: `Evaluate: log₂(${2**exp})`,
+    answer: exp,
+    explanation: `log₂(2^n) = n.`
+  };
+}
+
+  // Geometry
+  function ts_geometry() {
+  const r = Math.floor(Math.random()*10)+2;
+  return {
+    question: `Find the area of a circle with radius ${r}. (Use π=3.14)`,
+    answer: +(3.14*r*r).toFixed(2),
+    explanation: `A = πr²`
+  };
+}
+
+  // Rates
+  function ts_rate() {
+  const d = Math.floor(Math.random()*200)+50;
+  const t = Math.floor(Math.random()*5)+1;
+
+  return {
+    question: `A car travels ${d} miles in ${t} hours. What is its speed?`,
+    answer: d/t,
+    explanation: `Speed = distance/time.`
+  };
+}
+
+  // Percent
+  function ts_percent() {
+  const base = Math.floor(Math.random()*200)+50;
+  const p = Math.floor(Math.random()*40)+10;
+
+  return {
+    question: `What is ${p}% of ${base}?`,
+    answer: +(base*p/100).toFixed(2),
+    explanation: `${p}% = ${p}/100`
+  };
+}
+
+  // Systems
+  function ts_systems() {
+  const x = Math.floor(Math.random()*10)+1;
+  const y = Math.floor(Math.random()*10)+1;
+
+  const a1 = Math.floor(Math.random()*5)+1;
+  const b1 = Math.floor(Math.random()*5)+1;
+  const c1 = a1*x + b1*y;
+
+  return {
+    question: `Solve the system: ${a1}x + ${b1}y = ${c1}, y = ${y}`,
+    answer: x,
+    explanation: `Substitute y=${y} into the first equation.`
+  };
+}
+
+  // Rational Expressions
+  function ts_rational() {
+  const a = Math.floor(Math.random()*5)+2;
+  const b = Math.floor(Math.random()*5)+2;
+
+  return {
+    question: `Simplify: (x² - ${a*b}x + ${a*b*b}) / (x - ${b}) at x=${a+b}`,
+    answer: ( (a+b)**2 - a*b*(a+b) + a*b*b ) / ( (a+b)-b ),
+    explanation: `Plug in x=${a+b}.`
+  };
+}
+
+  //Quadratic Roots
+  function ts_quadraticRoots() {
+  const r1 = Math.floor(Math.random()*10)+1;
+  const r2 = Math.floor(Math.random()*10)+1;
+
+  const a = 1;
+  const b = -(r1+r2);
+  const c = r1*r2;
+
+  return {
+    question: `Find a root of x² ${b>=0?'+':''}${b}x + ${c} = 0`,
+    answer: r1,
+    explanation: `Roots are ${r1} and ${r2}.`
+  };
+}
+
+  // Factoring 
+  function ts_factor() {
+  const a = Math.floor(Math.random()*10)+1;
+  const b = Math.floor(Math.random()*10)+1;
+
+  return {
+    question: `Factor: x² + ${a+b}x + ${a*b}`,
+    answer: `(${a}+x)(${b}+x)`,
+    explanation: `Numbers that multiply to ${a*b} and add to ${a+b}.`
+  };
+}
 
   // ALGEBRA (already existed)
   if (topic === "algebra") {

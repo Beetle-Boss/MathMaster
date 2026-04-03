@@ -37,6 +37,54 @@ function checkPracticeAnswer(topic, correct, explanation) {
     </div>
   `;
 }
+// TEST‑STYLE QUESTIONS MODE
+function startTestStyle() {
+  const area = document.getElementById("testStyleArea");
+
+  // List of all test‑style generators
+  const bank = [
+    ts_linearSolve,
+    ts_fractionSimplify,
+    ts_sequence,
+    ts_exponent,
+    ts_logarithm,
+    ts_geometry,
+    ts_rate,
+    ts_percent,
+    ts_systems,
+    ts_rational,
+    ts_quadraticRoots,
+    ts_factor
+  ];
+
+  // Pick a random generator
+  const p = bank[Math.floor(Math.random() * bank.length)]();
+
+  area.innerHTML = `
+    <div class="problem-box">
+      <p>${p.question}</p>
+      <input id="tsInput">
+      <button onclick="checkTSAnswer(${JSON.stringify(p.answer)}, '${p.explanation}')">Check</button>
+    </div>
+  `;
+}
+
+function checkTSAnswer(correct, explanation) {
+  const input = document.getElementById("tsInput").value;
+  const area = document.getElementById("testStyleArea");
+
+  const isCorrect = (Number(input) == Number(correct));
+
+  area.innerHTML = `
+    <div class="problem-box">
+      <p class="${isCorrect ? "correct" : "incorrect"}">
+        ${isCorrect ? "Correct!" : "Incorrect. Answer: " + correct}
+      </p>
+      <p>${explanation}</p>
+      <button onclick="startTestStyle()">Next Test‑Style Question</button>
+    </div>
+  `;
+}
 
 // -------------------------
 // PROBLEM GENERATORS

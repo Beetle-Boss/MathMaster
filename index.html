@@ -1,314 +1,78 @@
-// =====================================================
-// PAGE SWITCHING
-// =====================================================
-function showPage(id) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UIL Math Trainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+  <header>
+    <h1>UIL Math Trainer</h1>
+    <nav>
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('practice')">Practice</button>
+      <button onclick="showPage('timed')">Timed Test</button>
+      <button onclick="showPage('review')">Review</button>
+      <button onclick="showPage('pastTests')">Past Tests</button>
+    </nav>
+  </header>
 
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <h2>Welcome</h2>
+    <p>Train for UIL Mathematics with practice problems, timed tests, and past contest archives.</p>
+  </section>
 
-// =====================================================
-// PRACTICE MODE
-// =====================================================
-function startPractice(topic) {
-  document.getElementById("testStyleArea").style.display = "none";
+  <!-- PRACTICE -->
+  <section id="practice" class="page">
+    <h2>Practice by Topic</h2>
 
-  const area = document.getElementById("practiceArea");
-  const p = generateProblem(topic);
+    <div class="button-row">
+      <button onclick="startPractice('algebra')">Algebra</button>
+      <button onclick="startPractice('geometry')">Geometry</button>
+      <button onclick="startPractice('numberTheory')">Number Theory</button>
+      <button onclick="startPractice('probability')">Probability</button>
+      <button onclick="startPractice('sequences')">Sequences</button>
+      <button onclick="startPractice('exponents')">Exponents</button>
+      <button onclick="startPractice('quadratics')">Quadratics</button>
+      <button onclick="startPractice('systems')">Systems</button>
+      <button onclick="startPractice('matrices')">Matrices</button>
+      <button onclick="startPractice('word')">Word Problems</button>
 
-  area.innerHTML = `
-    <div class="problem-box">
-      <p>${p.question}</p>
-      <input id="answerInput">
-      <button onclick="checkPracticeAnswer('${topic}', ${p.answer}, '${p.explanation}')">Check</button>
+      <!-- NEW TEST‑STYLE BUTTON -->
+      <button onclick="showTestStyle()">Test‑Style Questions</button>
     </div>
-  `;
-}
 
-function checkPracticeAnswer(topic, correct, explanation) {
-  const input = Number(document.getElementById("answerInput").value);
-  const area = document.getElementById("practiceArea");
-  const isCorrect = input === correct;
+    <!-- Normal practice area -->
+    <div id="practiceArea"></div>
 
-  area.innerHTML = `
-    <div class="problem-box">
-      <p class="${isCorrect ? "correct" : "incorrect"}">
-        ${isCorrect ? "Correct!" : "Incorrect. Answer: ${correct}"}
-      </p>
-      <p>${explanation}</p>
-      <button onclick="startPractice('${topic}')">Next Problem</button>
-    </div>
-  `;
-}
+    <!-- Test‑style area (hidden until button pressed) -->
+    <div id="testStyleArea" style="display:none;"></div>
+  </section>
 
+  <!-- TIMED TEST -->
+  <section id="timed" class="page">
+    <h2>Timed Test</h2>
+    <button onclick="startTimedTest()">Start 30-Minute Test</button>
+    <div id="timer"></div>
+    <div id="timedArea"></div>
+  </section>
 
+  <!-- REVIEW -->
+  <section id="review" class="page">
+    <h2>Review Missed Problems</h2>
+    <div id="reviewList"></div>
+  </section>
 
-// =====================================================
-// TEST‑STYLE QUESTIONS MODE
-// =====================================================
+  <!-- PAST TESTS -->
+  <section id="pastTests" class="page">
+    <h2>Past UIL Tests</h2>
+    <p>Select a year:</p>
+    <div id="yearList"></div>
+    <div id="testList"></div>
+  </section>
 
-// Button in HTML calls this
-function showTestStyle() {
-  document.getElementById("practiceArea").innerHTML = "";
-  document.getElementById("testStyleArea").style.display = "block";
-  startTestStyle();
-}
-
-function startTestStyle() {
-  const area = document.getElementById("testStyleArea");
-
-  const keys = Object.keys(testStyleGenerators);
-  const pick = keys[rand(0, keys.length - 1)];
-  const p = testStyleGenerators[pick]();
-
-  area.innerHTML = `
-    <div class="problem-box">
-      <p>${p.question}</p>
-      <input id="tsInput">
-      <button onclick="checkTSAnswer(${JSON.stringify(p.answer)}, '${p.explanation}')">Check</button>
-    </div>
-  `;
-}
-
-function checkTSAnswer(correct, explanation) {
-  const input = document.getElementById("tsInput").value;
-  const area = document.getElementById("testStyleArea");
-
-  const isCorrect = Number(input) == Number(correct);
-
-  area.innerHTML = `
-    <div class="problem-box">
-      <p class="${isCorrect ? "correct" : "incorrect"}">
-        ${isCorrect ? "Correct!" : "Incorrect. Answer: ${correct}"}
-      </p>
-      <p>${explanation}</p>
-      <button onclick="startTestStyle()">Next Test‑Style Question</button>
-    </div>
-  `;
-}
-
-
-
-// =====================================================
-// TEST‑STYLE QUESTION BANK (100+ possible)
-// =====================================================
-const testStyleGenerators = {
-  linear: () => {
-    const a = rand(2, 9), b = rand(1, 10), c = rand(5, 25);
-    return {
-      question: `Solve: ${a}x + ${b} = ${c}`,
-      answer: (c - b) / a,
-      explanation: `Subtract ${b}, then divide by ${a}.`
-    };
-  },
-
-  fraction: () => {
-    const a = rand(2, 9), b = rand(2, 9);
-    const num = a * b;
-    const den = a * rand(2, 6);
-    return {
-      question: `Simplify: ${num}/${den}`,
-      answer: num / den,
-      explanation: `Divide numerator and denominator by ${a}.`
-    };
-  },
-
-  sequence: () => {
-    const a = rand(2, 12), d = rand(1, 8), n = rand(5, 15);
-    return {
-      question: `Find term ${n} of the sequence: a₁=${a}, d=${d}`,
-      answer: a + (n - 1) * d,
-      explanation: `Use aₙ = a₁ + (n−1)d.`
-    };
-  },
-
-  exponent: () => {
-    const a = rand(2, 6), b = rand(2, 6);
-    return {
-      question: `Compute: ${a}^${b}`,
-      answer: a ** b,
-      explanation: `${a} multiplied by itself ${b} times.`
-    };
-  },
-
-  log: () => {
-    const exp = rand(2, 7);
-    return {
-      question: `Evaluate: log₂(${2 ** exp})`,
-      answer: exp,
-      explanation: `log₂(2^n) = n.`
-    };
-  },
-
-  geometry: () => {
-    const r = rand(2, 12);
-    return {
-      question: `Find the area of a circle with radius ${r}. (Use π=3.14)`,
-      answer: +(3.14 * r * r).toFixed(2),
-      explanation: `A = πr²`
-    };
-  },
-
-  rate: () => {
-    const d = rand(50, 250), t = rand(1, 5);
-    return {
-      question: `A car travels ${d} miles in ${t} hours. What is its speed?`,
-      answer: d / t,
-      explanation: `Speed = distance/time.`
-    };
-  },
-
-  percent: () => {
-    const base = rand(50, 250), p = rand(10, 50);
-    return {
-      question: `What is ${p}% of ${base}?`,
-      answer: +(base * p / 100).toFixed(2),
-      explanation: `${p}% = ${p}/100`
-    };
-  },
-
-  systems: () => {
-    const x = rand(1, 10), y = rand(1, 10);
-    const a1 = rand(1, 5), b1 = rand(1, 5);
-    const c1 = a1 * x + b1 * y;
-    return {
-      question: `Solve the system: ${a1}x + ${b1}y = ${c1}, y = ${y}`,
-      answer: x,
-      explanation: `Substitute y=${y}.`
-    };
-  },
-
-  rational: () => {
-    const a = rand(2, 6), b = rand(2, 6);
-    const x = a + b;
-    return {
-      question: `Evaluate: (x² - ${a*b}x + ${a*b*b}) / (x - ${b}) at x=${x}`,
-      answer: ((x ** 2) - a*b*x + a*b*b) / (x - b),
-      explanation: `Plug in x=${x}.`
-    };
-  },
-
-  quadratic: () => {
-    const r1 = rand(1, 10), r2 = rand(1, 10);
-    return {
-      question: `Find a root of x² - ${r1+r2}x + ${r1*r2} = 0`,
-      answer: r1,
-      explanation: `Roots are ${r1} and ${r2}.`
-    };
-  },
-
-  factor: () => {
-    const a = rand(1, 10), b = rand(1, 10);
-    return {
-      question: `Factor: x² + ${a+b}x + ${a*b}`,
-      answer: `(x+${a})(x+${b})`,
-      explanation: `Numbers that multiply to ${a*b} and add to ${a+b}.`
-    };
-  }
-};
-
-
-
-// =====================================================
-// MAIN PROBLEM DISPATCHER
-// =====================================================
-function generateProblem(topic) {
-  const topics = {
-    algebra: () => testStyleGenerators.linear(),
-    geometry: () => testStyleGenerators.geometry(),
-    probability: () => {
-      const red = rand(1, 10), total = 20;
-      return {
-        question: `A bag has ${red} red balls and ${total - red} blue balls. Probability of red?`,
-        answer: Number((red / total).toFixed(2)),
-        explanation: `Probability = red / total`
-      };
-    },
-    sequences: () => testStyleGenerators.sequence(),
-    exponents: () => testStyleGenerators.exponent(),
-    quadratics: () => testStyleGenerators.quadratic(),
-    systems: () => testStyleGenerators.systems(),
-    matrices: () => {
-      const a = rand(1, 5), b = rand(1, 5), c = rand(1, 5), d = rand(1, 5);
-      return {
-        question: `Find det([[${a}, ${b}], [${c}, ${d}]]).`,
-        answer: a*d - b*c,
-        explanation: `det = ad - bc`
-      };
-    },
-    word: () => {
-      const rate = rand(5, 10), hours = rand(2, 6);
-      return {
-        question: `A machine produces ${rate} items per hour. How many in ${hours} hours?`,
-        answer: rate * hours,
-        explanation: `Multiply rate × time`
-      };
-    }
-  };
-
-  return topics[topic]();
-}
-
-
-
-// =====================================================
-// HELPERS
-// =====================================================
-function rand(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function gcd(a, b) {
-  while (b !== 0) [a, b] = [b, a % b];
-  return a;
-}
-
-
-
-// =====================================================
-// TIMED TEST
-// =====================================================
-let timeLeft = 0;
-let timerInterval = null;
-
-function startTimedTest() {
-  timeLeft = 30 * 60;
-  document.getElementById("timedArea").innerHTML = "";
-  updateTimer();
-
-  timerInterval = setInterval(() => {
-    timeLeft--;
-    updateTimer();
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      document.getElementById("timedArea").innerHTML = "<p>Time's up!</p>";
-    }
-  }, 1000);
-}
-
-function updateTimer() {
-  const m = Math.floor(timeLeft / 60);
-  const s = timeLeft % 60;
-  document.getElementById("timer").innerText = `${m}:${s.toString().padStart(2, "0")}`;
-}
-
-
-
-// =====================================================
-// PAST TESTS
-// =====================================================
-const pastTests = {
-  2024: ["District Test", "Regional Test", "State Test"],
-  2023: ["District Test", "Regional Test"]
-};
-
-document.getElementById("yearList").innerHTML =
-  Object.keys(pastTests)
-    .map(y => `<button onclick="showTests(${y})">${y}</button>`)
-    .join("");
-
-function showTests(year) {
-  document.getElementById("testList").innerHTML =
-    pastTests[year].map(t => `<p>${t}</p>`).join("");
-}
+  <script src="script.js"></script>
+</body>
+</html>

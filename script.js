@@ -3,30 +3,18 @@ function showPage(id) {
   document.getElementById(id).classList.add("active");
 }
 
-/* ---------------------------
-   PDF VIEWER MODAL FUNCTIONS
----------------------------- */
-
+/* PDF VIEWER FUNCTIONS */
 function openPDF(url) {
-  const modal = document.getElementById("pdfModal");
-  const frame = document.getElementById("pdfFrame");
-
-  frame.src = url;
-  modal.style.display = "flex";
+  document.getElementById("pdfFrame").src = url;
+  document.getElementById("pdfModal").style.display = "flex";
 }
 
 function closePDF() {
-  const modal = document.getElementById("pdfModal");
-  const frame = document.getElementById("pdfFrame");
-
-  modal.style.display = "none";
-  frame.src = ""; // unload PDF
+  document.getElementById("pdfModal").style.display = "none";
+  document.getElementById("pdfFrame").src = "";
 }
 
-// Close modal when clicking outside content
-window.onclick = function(e) {
-  const modal = document.getElementById("pdfModal");
-  if (e.target === modal) {
-    closePDF();
-  }
-};
+/* Close modal with ESC key */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closePDF();
+});

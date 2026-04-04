@@ -1,55 +1,34 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7ff;
-  color: #222;
-}
-
-header {
-  background: #4a6cf7;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-nav button {
-  margin: 5px;
-  padding: 10px 15px;
+/* Past Tests */
+.year-block {
   background: white;
-  border: none;
-  border-radius: 6px;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.year-block h3 {
+  margin-top: 0;
+  color: #4a6cf7;
+}
+
+.year-block ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.year-block li {
+  padding: 8px 0;
   cursor: pointer;
   font-weight: bold;
+  color: #333;
 }
 
-.page {
-  display: none;
-  padding: 20px;
-  animation: fadeIn 0.4s ease;
+.year-block li:hover {
+  color: #4a6cf7;
 }
 
-.page.active {
-  display: block;
-}
-
-.test-list {
-  margin-top: 20px;
-}
-
-.test-btn {
-  display: block;
-  width: 250px;
-  padding: 12px;
-  margin: 10px 0;
-  background: #4a6cf7;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* MODAL BACKDROP */
+/* PDF Modal */
 .modal {
   display: none;
   position: fixed;
@@ -58,25 +37,26 @@ nav button {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.75);
-  justify-content: center;
-  align-items: center;
+  background: rgba(0,0,0,0.65);
 }
 
-/* MODAL BOX */
 .modal-content {
   background: white;
-  width: 85%;
+  width: 80%;
   height: 90%;
+  margin: 40px auto;
   border-radius: 10px;
   position: relative;
-  animation: fadeIn 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  padding: 10px;
 }
 
-/* CLOSE BUTTON */
-.close-btn {
+.modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close {
   position: absolute;
   right: 15px;
   top: 10px;
@@ -85,14 +65,6 @@ nav button {
   color: #333;
 }
 
-/* PDF FRAME */
-#pdfFrame {
-  width: 100%;
-  height: 100%;
-  border-radius: 0 0 10px 10px;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.close:hover {
+  color: red;
 }

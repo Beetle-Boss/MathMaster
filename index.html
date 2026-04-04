@@ -12,66 +12,22 @@
     <nav>
       <button onclick="showPage('home')">Home</button>
       <button onclick="showPage('practice')">Practice</button>
-      <button onclick="showPage('timed')">Timed Test</button>
-      <button onclick="showPage('review')">Review</button>
+      <button onclick="showPage('practiceTests')">Practice Tests</button>
       <button onclick="showPage('pastTests')">Past Tests</button>
     </nav>
   </header>
 
   <!-- HOME -->
-  <section id="home" class="page active">
-    <h2>Welcome</h2>
-    <p>Train for UIL Mathematics with practice problems, timed tests, and past contest archives.</p>
-  </section>
+  <section id="home" class="page active"></section>
 
   <!-- PRACTICE -->
-  <section id="practice" class="page">
-    <h2>Practice by Topic</h2>
+  <section id="practice" class="page"></section>
 
-    <div class="button-row">
-      <button onclick="startPractice('algebra')">Algebra</button>
-      <button onclick="startPractice('geometry')">Geometry</button>
-      <button onclick="startPractice('numberTheory')">Number Theory</button>
-      <button onclick="startPractice('probability')">Probability</button>
-      <button onclick="startPractice('sequences')">Sequences</button>
-      <button onclick="startPractice('exponents')">Exponents</button>
-      <button onclick="startPractice('quadratics')">Quadratics</button>
-      <button onclick="startPractice('systems')">Systems</button>
-      <button onclick="startPractice('matrices')">Matrices</button>
-      <button onclick="startPractice('word')">Word Problems</button>
-
-      <!-- NEW TEST‑STYLE BUTTON -->
-      <button onclick="showTestStyle()">Test‑Style Questions</button>
-    </div>
-
-    <!-- Normal practice area -->
-    <div id="practiceArea"></div>
-
-    <!-- Test‑style area (hidden until button pressed) -->
-    <div id="testStyleArea" style="display:none;"></div>
-  </section>
-
-  <!-- TIMED TEST -->
-  <section id="timed" class="page">
-    <h2>Timed Test</h2>
-    <button onclick="startTimedTest()">Start 30-Minute Test</button>
-    <div id="timer"></div>
-    <div id="timedArea"></div>
-  </section>
-
-  <!-- REVIEW -->
-  <section id="review" class="page">
-    <h2>Review Missed Problems</h2>
-    <div id="reviewList"></div>
-  </section>
+  <!-- PRACTICE TESTS -->
+  <section id="practiceTests" class="page"></section>
 
   <!-- PAST TESTS -->
-  <section id="pastTests" class="page">
-    <h2>Past UIL Tests</h2>
-    <p>Select a year:</p>
-    <div id="yearList"></div>
-    <div id="testList"></div>
-  </section>
+  <section id="pastTests" class="page"></section>
 
   <script src="script.js"></script>
 </body>

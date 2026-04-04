@@ -49,11 +49,30 @@
   <!-- PAST TESTS -->
   <section id="pastTests" class="page">
     <h2>Past Tests</h2>
-    <p>
-      This section will include a collection of previous UIL Mathematics tests.
-      You’ll be able to browse by year and access official contest materials.
-    </p>
+    <p>Select a test below to view it.</p>
+
+    <div class="test-list">
+      <h3>2024 UIL Mathematics</h3>
+      <ul>
+        <li><button class="pdf-btn" data-pdf="tests/2024/UIL_Math_2024_Test.pdf">2024 Test</button></li>
+        <li><button class="pdf-btn" data-pdf="tests/2024/UIL_Math_2024_Solutions.pdf">2024 Solutions</button></li>
+      </ul>
+
+      <h3>2023 UIL Mathematics</h3>
+      <ul>
+        <li><button class="pdf-btn" data-pdf="tests/2023/UIL_Math_2023_Test.pdf">2023 Test</button></li>
+        <li><button class="pdf-btn" data-pdf="tests/2023/UIL_Math_2023_Solutions.pdf">2023 Solutions</button></li>
+      </ul>
+    </div>
   </section>
+
+  <!-- PDF VIEWER MODAL -->
+  <div id="pdfModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePDF()">&times;</span>
+      <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

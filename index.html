@@ -49,27 +49,19 @@
   <!-- PAST TESTS -->
   <section id="pastTests" class="page">
     <h2>Past Tests</h2>
-    <p>Select a test below to view it.</p>
+    <p>Select a test to view it in the built‑in PDF viewer.</p>
 
     <div class="test-list">
-      <h3>2024 UIL Mathematics</h3>
-      <ul>
-        <li><button class="pdf-btn" data-pdf="tests/2024/UIL_Math_2024_Test.pdf">2024 Test</button></li>
-        <li><button class="pdf-btn" data-pdf="tests/2024/UIL_Math_2024_Solutions.pdf">2024 Solutions</button></li>
-      </ul>
-
-      <h3>2023 UIL Mathematics</h3>
-      <ul>
-        <li><button class="pdf-btn" data-pdf="tests/2023/UIL_Math_2023_Test.pdf">2023 Test</button></li>
-        <li><button class="pdf-btn" data-pdf="tests/2023/UIL_Math_2023_Solutions.pdf">2023 Solutions</button></li>
-      </ul>
+      <button class="test-btn" onclick="openPDF('pdfs/UIL_2022.pdf')">UIL 2022 Test</button>
+      <button class="test-btn" onclick="openPDF('pdfs/UIL_2021.pdf')">UIL 2021 Test</button>
+      <button class="test-btn" onclick="openPDF('pdfs/UIL_2020.pdf')">UIL 2020 Test</button>
     </div>
   </section>
 
   <!-- PDF VIEWER MODAL -->
   <div id="pdfModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closePDF()">&times;</span>
+      <span class="close-btn" onclick="closePDF()">&times;</span>
       <iframe id="pdfFrame" src="" frameborder="0"></iframe>
     </div>
   </div>

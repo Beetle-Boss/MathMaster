@@ -23,45 +23,74 @@
     <p>
       This site is designed to help students prepare for UIL Mathematics through
       organized practice, structured test simulations, and access to past contest material.
-      Use the tabs above to navigate between practice problems, full practice tests,
-      and archived UIL exams.
     </p>
   </section>
 
   <!-- PRACTICE -->
   <section id="practice" class="page">
     <h2>Practice</h2>
-    <p>
-      This section will contain topic‑based practice problems. You’ll be able to choose
-      specific categories and work through problems one at a time.
-    </p>
+    <p>Topic‑based practice problems will go here.</p>
   </section>
 
   <!-- PRACTICE TESTS -->
   <section id="practiceTests" class="page">
     <h2>Practice Tests</h2>
-    <p>
-      This section will offer full‑length practice tests modeled after real UIL exams.
-      You’ll be able to take timed or untimed tests and review your results.
-    </p>
+    <p>Full‑length practice tests will go here.</p>
   </section>
 
   <!-- PAST TESTS -->
   <section id="pastTests" class="page">
     <h2>Past Tests</h2>
-    <p>Select a test to view it in the built‑in PDF viewer.</p>
 
-    <div class="test-list">
-      <button class="test-btn" onclick="openPDF('pdfs/UIL_2022.pdf')">UIL 2022 Test</button>
-      <button class="test-btn" onclick="openPDF('pdfs/UIL_2021.pdf')">UIL 2021 Test</button>
-      <button class="test-btn" onclick="openPDF('pdfs/UIL_2020.pdf')">UIL 2020 Test</button>
+    <div class="year-block">
+      <h3>2026</h3>
+      <ul>
+        <li onclick="openPDF('pdf/2026_InvA.pdf')">Invitational A</li>
+        <li onclick="openPDF('pdf/2026_InvB.pdf')">Invitational B</li>
+        <li onclick="openPDF('pdf/2026_District.pdf')">District</li>
+        <li onclick="openPDF('pdf/2026_Region.pdf')">Region</li>
+        <li onclick="openPDF('pdf/2026_State.pdf')">State</li>
+      </ul>
+    </div>
+
+    <div class="year-block">
+      <h3>2025</h3>
+      <ul>
+        <li onclick="openPDF('pdf/2025_InvA.pdf')">Invitational A</li>
+        <li onclick="openPDF('pdf/2025_InvB.pdf')">Invitational B</li>
+        <li onclick="openPDF('pdf/2025_District.pdf')">District</li>
+        <li onclick="openPDF('pdf/2025_Region.pdf')">Region</li>
+        <li onclick="openPDF('pdf/2025_State.pdf')">State</li>
+      </ul>
+    </div>
+
+    <div class="year-block">
+      <h3>2024</h3>
+      <ul>
+        <li onclick="openPDF('pdf/2024_InvA.pdf')">Invitational A</li>
+        <li onclick="openPDF('pdf/2024_InvB.pdf')">Invitational B</li>
+        <li onclick="openPDF('pdf/2024_District.pdf')">District</li>
+        <li onclick="openPDF('pdf/2024_Region.pdf')">Region</li>
+        <li onclick="openPDF('pdf/2024_State.pdf')">State</li>
+      </ul>
+    </div>
+
+    <div class="year-block">
+      <h3>2023</h3>
+      <ul>
+        <li onclick="openPDF('pdf/2023_InvA.pdf')">Invitational A</li>
+        <li onclick="openPDF('pdf/2023_InvB.pdf')">Invitational B</li>
+        <li onclick="openPDF('pdf/2023_District.pdf')">District</li>
+        <li onclick="openPDF('pdf/2023_Region.pdf')">Region</li>
+        <li onclick="openPDF('pdf/2023_State.pdf')">State</li>
+      </ul>
     </div>
   </section>
 
   <!-- PDF VIEWER MODAL -->
   <div id="pdfModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn" onclick="closePDF()">&times;</span>
+      <span class="close" onclick="closePDF()">&times;</span>
       <iframe id="pdfFrame" src="" frameborder="0"></iframe>
     </div>
   </div>

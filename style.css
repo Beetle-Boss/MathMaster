@@ -1,70 +1,180 @@
-/* Past Tests */
-.year-block {
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7ff;
+  color: #222;
+}
+
+header {
+  background: #4a6cf7;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav button {
+  margin: 5px;
+  padding: 10px 15px;
   background: white;
-  padding: 15px;
-  margin: 15px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.page {
+  display: none;
+  padding: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+.button-row button {
+  margin: 10px;
+  padding: 12px 20px;
+  background: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.problem-box {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.year-block h3 {
-  margin-top: 0;
+.correct { color: green; font-weight: bold; }
+.incorrect { color: red; font-weight: bold; }
+
+input {
+  padding: 8px;
+  margin-top: 10px;
+  width: 120px;
+}
+
+#timer {
+  font-size: 24px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Past Tests: year selector and list --- */
+
+.year-buttons {
+  margin: 15px 0 10px;
+}
+
+.year-btn {
+  margin: 4px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: 1px solid #4a6cf7;
+  background: white;
   color: #4a6cf7;
-}
-
-.year-block ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.year-block li {
-  padding: 8px 0;
   cursor: pointer;
   font-weight: bold;
-  color: #333;
+  font-size: 14px;
 }
 
-.year-block li:hover {
-  color: #4a6cf7;
+.year-btn.active {
+  background: #4a6cf7;
+  color: white;
 }
 
-/* PDF Modal */
+.year-panel {
+  display: none;
+  margin-top: 10px;
+}
+
+.year-panel.active {
+  display: block;
+}
+
+.pdf-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.pdf-list li {
+  margin: 6px 0;
+}
+
+.pdf-link {
+  text-decoration: none;
+  color: #c0392b; /* UIL-style red for Mathematics links */
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pdf-link:hover {
+  text-decoration: underline;
+}
+
+.pdf-icon {
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+/* --- PDF Modal --- */
+
 .modal {
   display: none;
   position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.65);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.open {
+  display: flex;
 }
 
 .modal-content {
-  background: white;
-  width: 80%;
+  background: #ffffff;
+  width: 90%;
+  max-width: 1000px;
   height: 90%;
-  margin: 40px auto;
-  border-radius: 10px;
-  position: relative;
-  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.modal-content iframe {
+.modal-title {
+  margin: 10px 16px 0;
+  font-size: 18px;
+}
+
+.modal-close {
+  align-self: flex-end;
+  margin: 8px 10px 0 0;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#pdfFrame {
   width: 100%;
   height: 100%;
   border: none;
-}
-
-.close {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  font-size: 32px;
-  cursor: pointer;
-  color: #333;
-}
-
-.close:hover {
-  color: red;
+  flex: 1;
+  margin-top: 8px;
 }

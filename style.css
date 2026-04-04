@@ -25,16 +25,15 @@ nav button {
 .page {
   display: none;
   padding: 20px;
-  animation: fadeIn 0.4s ease;
 }
 
 .page.active {
   display: block;
 }
 
-.button-row button {
-  margin: 10px;
-  padding: 12px 20px;
+.year-selector button {
+  margin: 5px;
+  padding: 10px 15px;
   background: #4a6cf7;
   color: white;
   border: none;
@@ -42,139 +41,57 @@ nav button {
   cursor: pointer;
 }
 
-.problem-box {
-  background: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.year-block ul {
+  list-style: none;
+  padding: 0;
 }
 
-.correct { color: green; font-weight: bold; }
-.incorrect { color: red; font-weight: bold; }
-
-input {
-  padding: 8px;
-  margin-top: 10px;
-  width: 120px;
+.year-block li {
+  margin: 8px 0;
 }
 
-#timer {
-  font-size: 24px;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Past Tests: year selector and list --- */
-
-.year-buttons {
-  margin: 15px 0 10px;
-}
-
-.year-btn {
-  margin: 4px;
-  padding: 8px 14px;
-  border-radius: 4px;
-  border: 1px solid #4a6cf7;
-  background: white;
-  color: #4a6cf7;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.year-btn.active {
+.year-block button {
+  padding: 10px 15px;
   background: #4a6cf7;
   color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.year-panel {
+.hidden {
   display: none;
-  margin-top: 10px;
 }
 
-.year-panel.active {
-  display: block;
-}
-
-.pdf-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 10px;
-}
-
-.pdf-list li {
-  margin: 6px 0;
-}
-
-.pdf-link {
-  text-decoration: none;
-  color: #c0392b; /* UIL-style red for Mathematics links */
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-}
-
-.pdf-link:hover {
-  text-decoration: underline;
-}
-
-.pdf-icon {
-  margin-right: 6px;
-  font-size: 16px;
-}
-
-/* --- PDF Modal --- */
-
+/* PDF MODAL */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-}
-
-.modal.open {
-  display: flex;
 }
 
 .modal-content {
-  background: #ffffff;
-  width: 90%;
-  max-width: 1000px;
-  height: 90%;
+  background: white;
+  width: 80%;
+  height: 80%;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  position: relative;
+  padding: 10px;
 }
 
-.modal-title {
-  margin: 10px 16px 0;
-  font-size: 18px;
-}
-
-.modal-close {
-  align-self: flex-end;
-  margin: 8px 10px 0 0;
-  border: none;
-  background: transparent;
-  font-size: 24px;
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 28px;
   cursor: pointer;
 }
 
-#pdfFrame {
+iframe {
   width: 100%;
   height: 100%;
   border: none;
-  flex: 1;
-  margin-top: 8px;
 }

@@ -32,37 +32,64 @@ nav button {
   display: block;
 }
 
-.button-row button {
-  margin: 10px;
-  padding: 12px 20px;
+.test-list {
+  margin-top: 20px;
+}
+
+.test-btn {
+  display: block;
+  width: 250px;
+  padding: 12px;
+  margin: 10px 0;
   background: #4a6cf7;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.problem-box {
+/* MODAL BACKDROP */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+}
+
+/* MODAL BOX */
+.modal-content {
   background: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 85%;
+  height: 90%;
+  border-radius: 10px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.correct { color: green; font-weight: bold; }
-.incorrect { color: red; font-weight: bold; }
-
-input {
-  padding: 8px;
-  margin-top: 10px;
-  width: 120px;
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 32px;
+  cursor: pointer;
+  color: #333;
 }
 
-#timer {
-  font-size: 24px;
-  margin-top: 15px;
-  font-weight: bold;
+/* PDF FRAME */
+#pdfFrame {
+  width: 100%;
+  height: 100%;
+  border-radius: 0 0 10px 10px;
 }
 
 @keyframes fadeIn {

@@ -23,66 +23,169 @@
     <p>
       This site is designed to help students prepare for UIL Mathematics through
       organized practice, structured test simulations, and access to past contest material.
+      Use the tabs above to navigate between practice problems, full practice tests,
+      and archived UIL exams.
     </p>
   </section>
 
   <!-- PRACTICE -->
   <section id="practice" class="page">
     <h2>Practice</h2>
-    <p>Topic‑based practice problems will go here.</p>
+    <p>
+      This section will contain topic‑based practice problems. You’ll be able to choose
+      specific categories and work through problems one at a time.
+    </p>
   </section>
 
   <!-- PRACTICE TESTS -->
   <section id="practiceTests" class="page">
     <h2>Practice Tests</h2>
-    <p>Full‑length practice tests will go here.</p>
+    <p>
+      This section will offer full‑length practice tests modeled after real UIL exams.
+      You’ll be able to take timed or untimed tests and review your results.
+    </p>
   </section>
 
   <!-- PAST TESTS -->
   <section id="pastTests" class="page">
     <h2>Past Tests</h2>
+    <p>
+      Browse official-style UIL Mathematics tests by year. Click a test name to view it in the PDF viewer.
+    </p>
 
-    <div class="year-block">
-      <h3>2026</h3>
-      <ul>
-        <li onclick="openPDF('pdf/2026_InvA.pdf')">Invitational A</li>
-        <li onclick="openPDF('pdf/2026_InvB.pdf')">Invitational B</li>
-        <li onclick="openPDF('pdf/2026_District.pdf')">District</li>
-        <li onclick="openPDF('pdf/2026_Region.pdf')">Region</li>
-        <li onclick="openPDF('pdf/2026_State.pdf')">State</li>
+    <!-- Year selector (you can add more years if you want) -->
+    <div class="year-buttons">
+      <button class="year-btn active" data-year="2026">2026</button>
+      <button class="year-btn" data-year="2025">2025</button>
+      <button class="year-btn" data-year="2024">2024</button>
+      <button class="year-btn" data-year="2023">2023</button>
+    </div>
+
+    <!-- 2026 -->
+    <div class="year-panel active" id="year-2026" data-year="2026">
+      <h3>Mathematics</h3>
+      <ul class="pdf-list">
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2026/math_inv_a.pdf">
+            <span class="pdf-icon">📄</span> Invitational A
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2026/math_inv_b.pdf">
+            <span class="pdf-icon">📄</span> Invitational B
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2026/math_district.pdf">
+            <span class="pdf-icon">📄</span> District
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2026/math_region.pdf">
+            <span class="pdf-icon">📄</span> Region
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2026/math_state.pdf">
+            <span class="pdf-icon">📄</span> State
+          </a>
+        </li>
       </ul>
     </div>
 
-    <div class="year-block">
-      <h3>2025</h3>
-      <ul>
-        <li onclick="openPDF('pdf/2025_InvA.pdf')">Invitational A</li>
-        <li onclick="openPDF('pdf/2025_InvB.pdf')">Invitational B</li>
-        <li onclick="openPDF('pdf/2025_District.pdf')">District</li>
-        <li onclick="openPDF('pdf/2025_Region.pdf')">Region</li>
-        <li onclick="openPDF('pdf/2025_State.pdf')">State</li>
+    <!-- 2025 -->
+    <div class="year-panel" id="year-2025" data-year="2025">
+      <h3>Mathematics</h3>
+      <ul class="pdf-list">
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2025/math_inv_a.pdf">
+            <span class="pdf-icon">📄</span> Invitational A
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2025/math_inv_b.pdf">
+            <span class="pdf-icon">📄</span> Invitational B
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2025/math_district.pdf">
+            <span class="pdf-icon">📄</span> District
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2025/math_region.pdf">
+            <span class="pdf-icon">📄</span> Region
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2025/math_state.pdf">
+            <span class="pdf-icon">📄</span> State
+          </a>
+        </li>
       </ul>
     </div>
 
-    <div class="year-block">
-      <h3>2024</h3>
-      <ul>
-        <li onclick="openPDF('pdf/2024_InvA.pdf')">Invitational A</li>
-        <li onclick="openPDF('pdf/2024_InvB.pdf')">Invitational B</li>
-        <li onclick="openPDF('pdf/2024_District.pdf')">District</li>
-        <li onclick="openPDF('pdf/2024_Region.pdf')">Region</li>
-        <li onclick="openPDF('pdf/2024_State.pdf')">State</li>
+    <!-- 2024 -->
+    <div class="year-panel" id="year-2024" data-year="2024">
+      <h3>Mathematics</h3>
+      <ul class="pdf-list">
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2024/math_inv_a.pdf">
+            <span class="pdf-icon">📄</span> Invitational A
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2024/math_inv_b.pdf">
+            <span class="pdf-icon">📄</span> Invitational B
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2024/math_district.pdf">
+            <span class="pdf-icon">📄</span> District
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2024/math_region.pdf">
+            <span class="pdf-icon">📄</span> Region
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2024/math_state.pdf">
+            <span class="pdf-icon">📄</span> State
+          </a>
+        </li>
       </ul>
     </div>
 
-    <div class="year-block">
-      <h3>2023</h3>
-      <ul>
-        <li onclick="openPDF('pdf/2023_InvA.pdf')">Invitational A</li>
-        <li onclick="openPDF('pdf/2023_InvB.pdf')">Invitational B</li>
-        <li onclick="openPDF('pdf/2023_District.pdf')">District</li>
-        <li onclick="openPDF('pdf/2023_Region.pdf')">Region</li>
-        <li onclick="openPDF('pdf/2023_State.pdf')">State</li>
+    <!-- 2023 -->
+    <div class="year-panel" id="year-2023" data-year="2023">
+      <h3>Mathematics</h3>
+      <ul class="pdf-list">
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2023/math_inv_a.pdf">
+            <span class="pdf-icon">📄</span> Invitational A
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2023/math_inv_b.pdf">
+            <span class="pdf-icon">📄</span> Invitational B
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2023/math_district.pdf">
+            <span class="pdf-icon">📄</span> District
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2023/math_region.pdf">
+            <span class="pdf-icon">📄</span> Region
+          </a>
+        </li>
+        <li>
+          <a href="#" class="pdf-link" data-pdf="pdf/2023/math_state.pdf">
+            <span class="pdf-icon">📄</span> State
+          </a>
+        </li>
       </ul>
     </div>
   </section>
@@ -90,7 +193,8 @@
   <!-- PDF VIEWER MODAL -->
   <div id="pdfModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closePDF()">&times;</span>
+      <button id="pdfModalClose" class="modal-close">&times;</button>
+      <h3 id="pdfModalTitle" class="modal-title"></h3>
       <iframe id="pdfFrame" src="" frameborder="0"></iframe>
     </div>
   </div>
